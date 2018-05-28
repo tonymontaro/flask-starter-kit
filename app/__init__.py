@@ -1,3 +1,4 @@
+"""Application entry point."""
 import os
 
 from flask import Flask
@@ -15,6 +16,7 @@ from app.auth import routes as auth_routes
 
 
 def create_app(env):
+    """Configure and create flask app."""
     app = Flask(__name__)
     app.secret_key = os.getenv('SECRET') or 'averylongword'
     app.config.from_object(app_config[env])

@@ -1,8 +1,11 @@
+"""Configuration file."""
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config(object):
+    """Default configuration."""
+
     DEBUG = False
     SECRET = os.getenv('SECRET')
     SQLALCHEMY_DATABASE_URI = (os.getenv('DATABASE_URL') or
@@ -11,10 +14,14 @@ class Config(object):
 
 
 class Development(Config):
+    """Development configuration."""
+
     DEBUG = True
 
 
 class Testing(Config):
+    """Test configuration."""
+
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_TEST_URL')
 

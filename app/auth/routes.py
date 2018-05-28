@@ -1,3 +1,4 @@
+"""Authentication routes."""
 from flask import request
 from flask_restful import Resource
 from flask_login import login_user, logout_user
@@ -6,8 +7,10 @@ from app.models import User
 
 
 class Register(Resource):
-    """Register User route."""
+    """Register User resource."""
+
     def post(self):
+        """Register User route."""
         email = request.form.get('email')
         password = request.form.get('password')
         new_user = User.register(email, password)
@@ -17,8 +20,10 @@ class Register(Resource):
 
 
 class Login(Resource):
-    """Login User route."""
+    """Login User resource."""
+
     def post(self):
+        """Login User route."""
         email = request.form.get('email')
         password = request.form.get('password')
         user = User.get_user(email, password)
@@ -29,7 +34,9 @@ class Login(Resource):
 
 
 class Logout(Resource):
-    """Logout User route."""
+    """Logout User resource."""
+
     def post(self):
+        """Logout User route."""
         logout_user()
         return {'message': 'Logged out.'}

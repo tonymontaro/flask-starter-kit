@@ -1,3 +1,4 @@
+"""Application models."""
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -5,7 +6,8 @@ from app import db, login_manager
 
 
 class User(UserMixin, db.Model):
-    """User model, used for registration and login"""
+    """User model, used for registration and login."""
+
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(255), unique=True, nullable=False)
@@ -21,6 +23,7 @@ class User(UserMixin, db.Model):
 
     @staticmethod
     def register(email, password):
+        """Register a user."""
         prev_user = User.query.filter_by(email=email).first()
         if email and password and not prev_user:
             user = User(email=email)
@@ -32,16 +35,18 @@ class User(UserMixin, db.Model):
 
     @staticmethod
     def get_user(email, password):
+        """Find and authenticate a user."""
         user = User.query.filter_by(email=email).first()
         if user and user.check_password(password):
             return user
         return None
 
     def __repr__(self):
-        """User representation"""
+        """User representation."""
         return '<User {}>'.format(self.email)
 
 
 @login_manager.user_loader
 def load_user(user_id):
+    """User loader for Flask-Login."""
     return User.query.get(user_id)
