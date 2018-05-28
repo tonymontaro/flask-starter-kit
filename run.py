@@ -2,5 +2,7 @@ import os
 
 from app import create_app
 
+app = create_app(os.getenv('ENV', 'development'))
+
 if __name__ == '__main__':
-    create_app(os.getenv('ENV')).run()
+    app.run()
