@@ -15,8 +15,8 @@ class Register(Resource):
         password = request.form.get('password')
         new_user = User.register(email, password)
         if new_user:
-            return {'message': 'Registration successful.'}
-        return {'message': 'Invalid username or password.'}
+            return {'message': 'Registration successful.'}, 201
+        return {'message': 'Invalid username or password.'}, 400
 
 
 class Login(Resource):
@@ -29,8 +29,8 @@ class Login(Resource):
         user = User.get_user(email, password)
         if user:
             login_user(user)
-            return {'message': 'Login successful.'}
-        return {'message': 'Invalid username or password.'}
+            return {'message': 'Login successful.'}, 200
+        return {'message': 'Invalid username or password.'}, 401
 
 
 class Logout(Resource):
