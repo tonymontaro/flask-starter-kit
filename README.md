@@ -6,8 +6,11 @@ An opinionated boilerplate for web development with Flask, helping you stay prod
 
 
 ## Technologies Used
+- [Python3.6](https://www.python.org/downloads/) - A programming language that lets you work more quickly.
+- [Flask](flask.pocoo.org/) - A microframework for Python based on Werkzeug, Jinja 2 and good intentions.
+- [Virtualenv](https://virtualenv.pypa.io/en/stable/) - A tool to create isolated virtual environments.
 - [Flask-Login](https://flask-login.readthedocs.io/en/latest/) - For authentication.
-- [Flask-Restful](https://flask-restful.readthedocs.io/en/latest/) - For creating restful API.
+- [Flask-Restful](https://flask-restful.readthedocs.io/en/latest/) - For creating restful APIs.
 - [Pytest](https://docs.pytest.org/en/latest/) - For testing.
 - [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - For database management.
 
@@ -40,12 +43,13 @@ cp env_sample .env
 pip install -r requirements.txt
 ```
 
-- Migrations:
+- Migrations; run the following commands in order:
 ```bash
+flask db init
 flask db migrate
 flask db upgrate
 ```
-If the **migrations** folder is missing, simply run `flask db init` before running the above commands.
+When a change is made to the `models`, the last two commands (migrate and upgrade) will need to be run.
 - Finally, run the application
 ```bash
 flask run
