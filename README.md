@@ -47,7 +47,7 @@ pip install -r requirements.txt
 ```bash
 flask db init
 flask db migrate
-flask db upgrate
+flask db upgrade
 ```
 When a change is made to the `models`, the last two commands (migrate and upgrade) will need to be run.
 - Finally, run the application
@@ -58,8 +58,6 @@ flask run
 ## Tests
 
 - Run the tests with `pytest`
-
----
 
 ## License
 
