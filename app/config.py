@@ -1,6 +1,8 @@
 """Configuration file."""
 import os
-basedir = os.path.abspath(os.path.dirname(__file__))
+from os.path import abspath, dirname, join
+
+basedir = abspath(dirname(__file__))
 
 
 class Config(object):
@@ -9,7 +11,7 @@ class Config(object):
     DEBUG = False
     SECRET = os.getenv('SECRET')
     SQLALCHEMY_DATABASE_URI = (os.getenv('DATABASE_URL') or
-                               'sqlite:///' + os.path.join(basedir, 'app.db'))
+                               'sqlite:///' + join(basedir, 'app.db'))
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
@@ -23,7 +25,8 @@ class Testing(Config):
     """Test configuration."""
 
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_TEST_URL')
+    SQLALCHEMY_DATABASE_URI = (os.getenv('DATABASE_TEST_URL') or
+                               'sqlite:///' + join(basedir, 'test.db'))
 
 
 app_config = {
