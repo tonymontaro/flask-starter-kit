@@ -10,7 +10,7 @@ from flask_migrate import Migrate
 db = SQLAlchemy()
 login_manager = LoginManager()
 
-from app.config import app_config
+from config import app_config
 from app.api import routes as api_routes
 from app.auth import routes as auth_routes
 
@@ -18,7 +18,7 @@ from app.auth import routes as auth_routes
 def create_app(env):
     """Configure and create flask app."""
     app = Flask(__name__)
-    app.secret_key = os.getenv('SECRET') or 'averylongword'
+    app.secret_key = os.getenv('SECRET') or 'a-very-long-string'
     app.config.from_object(app_config[env])
     db.init_app(app)
     Migrate(app, db)

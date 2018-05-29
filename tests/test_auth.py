@@ -45,7 +45,7 @@ class AuthTestCase(unittest.TestCase):
         self.assertEqual(result['message'], "Login successful.")
         self.assertEqual(login_res.status_code, 200)
 
-    def test_user_invalid_loginself(self):
+    def test_user_invalid_login(self):
         """Test for invalid user login."""
         res = self.client.post('/register', data=self.user_data)
         self.assertEqual(res.status_code, 201)
@@ -57,6 +57,23 @@ class AuthTestCase(unittest.TestCase):
         result = json.loads(login_res.data)
         self.assertEqual(result['message'], "Invalid username or password.")
         self.assertEqual(login_res.status_code, 401)
+
+    def test_login_required_for_protected_routes(self):
+        """Test for route protection."""
+        un_protected = json.loads(self.client.get('/').data)
+        self.assertEqual(un_protected['message'], 'Hello World!')
+        protected = self.client.get('/protected')
+        self.assertEqual(protected.status_code, 401)
+
+        res = self.client.post('/register', data=self.user_data)
+        self.assertEqual(res.status_code, 201)
+        login_res = self.client.post('/login', data=self.user_data)
+        self.assertEqual(login_res.status_code, 200)
+
+        protected = self.client.get('/protected')
+        result = json.loads(protected.data)
+        self.assertEqual(protected.status_code, 200)
+        self.assertEqual(result['message'], 'You are logged-in.')
 
     def test_user_logout(self):
         """Test for user login."""

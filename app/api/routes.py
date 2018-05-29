@@ -16,5 +16,5 @@ class Protected(Resource):
 
     @login_required
     def get(self):
-        """Login to access this protected route."""
-        return {'message': 'You must be logged in to view this message.'}
+        """A protected route."""
+        return {'message': 'You are logged-in.'}
