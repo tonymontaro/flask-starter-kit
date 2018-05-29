@@ -1,0 +1,4 @@
+FLASK_ENV=development
+SECRET='you-should-probably-change-this-to-a-very-long-string.'
+DATABASE_URL=
+DATABASE_TEST_URL=

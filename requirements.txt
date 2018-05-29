@@ -12,7 +12,6 @@ Flask-Login==0.4.1
 Flask-Migrate==2.1.1
 Flask-RESTful==0.3.6
 Flask-SQLAlchemy==2.3.2
-Flask-WTF==0.14.2
 itsdangerous==0.24
 Jinja2==2.10
 Mako==1.0.7
@@ -27,10 +26,10 @@ pyflakes==1.6.0
 pytest==3.6.0
 pytest-cov==2.5.1
 python-dateutil==2.7.3
+python-dotenv==0.8.2
 python-editor==1.0.3
 pytz==2018.4
 six==1.11.0
 snowballstemmer==1.2.1
 SQLAlchemy==1.2.7
 Werkzeug==0.14.1
-WTForms==2.1
