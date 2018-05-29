@@ -47,7 +47,7 @@ pip install -r requirements.txt
 ```bash
 flask db init
 flask db migrate
-flask db upgrate
+flask db upgrade
 ```
 When a change is made to the `models`, the last two commands (migrate and upgrade) will need to be run.
 - Finally, run the application
@@ -59,7 +59,8 @@ flask run
 
 - Run the tests with `pytest`
 
----
+See available routes and test on Postman [here](https://documenter.getpostman.com/view/646133/collection/RW8CJ8FR)
+
 
 ## License
 
