@@ -59,6 +59,9 @@ flask run
 
 - Run the tests with `pytest`
 
+See available routes and test on Postman [here](https://documenter.getpostman.com/view/646133/collection/RW8CJ8FR)
+
+
 ## License
 
 MIT
