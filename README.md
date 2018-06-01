@@ -20,12 +20,18 @@ An opinionated boilerplate for web development with Flask, helping you stay prod
 Requirements
 - Mac OS X, Windows or Linux
 - Python 3.6
+- [Virtualenv](https://virtualenv.pypa.io/en/stable/)
 
-### Installation
-- Clone this repository and cd into the root folder:
+### How to Use
+- Start by creating a new project and initiate a git repository:
+```bash
+mkdir myproject && cd myproject
+git init
+```
+- Pull the content of this repository into your project's repo:
 
 ```bash
-git clone git@github.com:tonymontaro/flask-starter-kit.git && cd flask-starter-kit
+git pull https://github.com/tonymontaro/flask-starter-kit.git
 ```
 
 - Create and activate a virtual environment in python3:
@@ -33,6 +39,9 @@ git clone git@github.com:tonymontaro/flask-starter-kit.git && cd flask-starter-k
 ```bash
 virtualenv -p python3 venv && source venv/bin/activate
 ```
+- At this point, you can finish the installation with the command: `make install` 
+
+or simply proceed with the remaining steps below.
 
 - Create a **.env** file and copy over content from the file **env_sample** on the root directory. In the **.env** file, you can specify things like the Database URL (the app uses sqlite by default but this behavior can be over-ridden here with something like postgres).
 ```bash
@@ -58,7 +67,10 @@ flask run
 
 ## Tests
 
-- Run the tests with `pytest`
+- Run the tests with:
+``` bash
+pytest
+```
 
 See available routes and test on Postman [here](https://documenter.getpostman.com/view/646133/collection/RW8CJ8FR)
 
