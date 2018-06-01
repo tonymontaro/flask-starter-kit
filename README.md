@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/tonymontaro/flask-starter-kit.svg?branch=master)](https://travis-ci.org/tonymontaro/flask-starter-kit)
 [![codecov](https://codecov.io/gh/tonymontaro/flask-starter-kit/branch/master/graph/badge.svg)](https://codecov.io/gh/tonymontaro/flask-starter-kit)
+[![Maintainability](https://api.codeclimate.com/v1/badges/b4c547764a24cae52a3f/maintainability)](https://codeclimate.com/github/tonymontaro/flask-starter-kit/maintainability)
 
 # flask-starter-kit
 An opinionated boilerplate for web development with Flask, helping you stay productive while following best practices. 
