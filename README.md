@@ -10,10 +10,13 @@ An opinionated boilerplate for web development with Flask, helping you stay prod
 - [Python3.6](https://www.python.org/downloads/) - A programming language that lets you work more quickly.
 - [Flask](flask.pocoo.org/) - A microframework for Python based on Werkzeug, Jinja 2 and good intentions.
 - [Virtualenv](https://virtualenv.pypa.io/en/stable/) - A tool to create isolated virtual environments.
-- [Flask-Login](https://flask-login.readthedocs.io/en/latest/) - For authentication.
-- [Flask-Restful](https://flask-restful.readthedocs.io/en/latest/) - For creating restful APIs.
-- [Pytest](https://docs.pytest.org/en/latest/) - For testing.
+
+#### Extentsions
+
 - [Flask-SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) - For database management.
+- [Flask-Migrate](https://flask-migrate.readthedocs.io/en/latest/) - For migrations.
+- [Flask-Login](https://flask-login.readthedocs.io/en/latest/) - For authentication.
+- [Pytest](https://docs.pytest.org/en/latest/) - For testing.
 
 
 ## Getting Started
@@ -72,7 +75,14 @@ flask run
 pytest
 ```
 
-See available routes and test on Postman [here](https://documenter.getpostman.com/view/646133/collection/RW8CJ8FR)
+#### Tests with coverage
+- Show test coverage on the console: `pytest --cov=app`
+- Generate html files containing test coverage: `pytest --cov=app --cov-report=html`
+q
+[Api hosted on Heroku.](https://flask-starter-kit.herokuapp.com/) 
+
+Api documentation: [Generated with Postman](https://documenter.getpostman.com/view/646133/RWEfMJz4)
+
 
 
 ## License
