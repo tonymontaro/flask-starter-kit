@@ -10,7 +10,6 @@ flake8-polyfill==1.0.2
 Flask==1.0.2
 Flask-Login==0.4.1
 Flask-Migrate==2.1.1
-Flask-RESTful==0.3.6
 Flask-SQLAlchemy==2.3.2
 gunicorn==19.8.1
 itsdangerous==0.24
@@ -21,6 +20,7 @@ mccabe==0.6.1
 more-itertools==4.2.0
 pluggy==0.6.0
 psycopg2==2.7.4
+psycopg2-binary==2.7.4
 py==1.5.3
 pycodestyle==2.3.1
 pydocstyle==2.1.1

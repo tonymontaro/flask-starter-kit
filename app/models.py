@@ -5,6 +5,22 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from app import db, login_manager
 
 
+class DBHelper(object):
+    """Perform common SQLAlchemy tasks."""
+
+    @staticmethod
+    def add(item):
+        """Add item to database."""
+        db.session.add(item)
+        db.session.commit()
+
+    @staticmethod
+    def delete(item):
+        """Delete an item from the database."""
+        db.session.delete(item)
+        db.session.commit()
+
+
 class User(UserMixin, db.Model):
     """User model, used for registration and login."""
 
@@ -28,8 +44,7 @@ class User(UserMixin, db.Model):
         if email and password and not prev_user:
             user = User(email=email)
             user.set_password(password)
-            db.session.add(user)
-            db.session.commit()
+            DBHelper.add(user)
             return user
         return None
 
@@ -37,13 +52,21 @@ class User(UserMixin, db.Model):
     def get_user(email, password):
         """Find and authenticate a user."""
         user = User.query.filter_by(email=email).first()
-        if user and user.check_password(password):
+        if user and password and user.check_password(password):
             return user
         return None
 
-    def __repr__(self):
-        """User representation."""
-        return '<User {}>'.format(self.email)
+    @staticmethod
+    def get_by_id(id_, password):
+        """Find a user by id."""
+        user = User.query.get(id_)
+        if user and password and user.check_password(password):
+            return user
+        return None
+
+    def delete(self):
+        """Delete a user's account"""
+        return DBHelper.delete(self)
 
 
 @login_manager.user_loader
