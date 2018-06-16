@@ -78,7 +78,8 @@ pytest
 #### Tests with coverage
 - Show test coverage on the console: `pytest --cov=app`
 - Generate html files containing test coverage: `pytest --cov=app --cov-report=html`
-q
+
+
 [Api hosted on Heroku.](https://flask-starter-kit.herokuapp.com/) 
 
 Api documentation: [Generated with Postman](https://documenter.getpostman.com/view/646133/RWEfMJz4)
